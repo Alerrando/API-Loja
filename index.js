@@ -1,6 +1,7 @@
 import express from "express";
 import cors from 'cors'
 import router from './routes/products.js'
+import { PORT } from "./db.js";
 
 const app = express();
 
@@ -9,5 +10,4 @@ app.use(cors());
 
 app.use("/", router);
 
-const PORT= 8000;
-app.listen(process.env.PORT || PORT, () => console.log("Server ON"));
+app.listen(PORT);
