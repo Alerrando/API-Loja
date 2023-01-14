@@ -1,7 +1,7 @@
 import { db } from '../db.js'
 
 export function getProducts(_, res){
-    const q = "SELECT * FROM Produtos";
+    const q = "SELECT * FROM produtos";
 
     db.query(q, (err, data) => {
         if (err) return res.json(err);
@@ -11,7 +11,7 @@ export function getProducts(_, res){
 }
 
 export function addProduct(req, res){
-    const q = "INSERT INTO Produtos(`titulo`, `price``) VALUES (?)";
+    const q = "INSERT INTO produtos(`titulo`, `price``) VALUES (?)";
 
     const values = [
         req.body.titulo,
@@ -26,7 +26,7 @@ export function addProduct(req, res){
 }
 
 export function updateProduct(req, res){
-    const q = "UPDATE Produtos SET `titulo` = ?, `price` = ? WHERE `id_produtos` = ?"
+    const q = "UPDATE produtos SET `titulo` = ?, `price` = ? WHERE `id_produtos` = ?"
 
     const values = [
         req.body.titulo,
@@ -43,7 +43,7 @@ export function updateProduct(req, res){
 }
 
 export function deleteProduct(req, res){
-    const q = "DELETE FROM Produtos WHERE `id` = ?"
+    const q = "DELETE FROM produtos WHERE `id` = ?"
 
     db.query(q, [req.params.id], (err) => {
         if(err) return res.json(err);

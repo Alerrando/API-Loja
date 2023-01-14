@@ -1,8 +1,8 @@
-import mysql from "mysql";
+import mysql2 from "mysql2";
 export const PORT = process.env.PORT || 8000;
 
 
-export const db = mysql.createPool({
+export const db = mysql2.createPool({
   host: process.env.host || "containers-us-west-17.railway.app",
   port: process.env.port || "5716",
   user: process.env.user || "root",
