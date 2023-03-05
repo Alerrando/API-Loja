@@ -1,7 +1,7 @@
 import { db } from '../db.js'
 
 export function getProducts(_, res){
-    const q = "SELECT * FROM produto";
+    const q = "SELECT * FROM produtos";
 
     db.query(q, (err, data) => {
         if (err) return res.json(err);
@@ -11,7 +11,7 @@ export function getProducts(_, res){
 }
 
 export function addProduct(req, res){
-    const q = "INSERT INTO produto(`id`, `name`, `price`, `quantidade`) VALUES (?)";
+    const q = "INSERT INTO produtos(`id`, `name`, `price`, `quantidade`) VALUES (?)";
 
     const values = [
         req.body.id,
